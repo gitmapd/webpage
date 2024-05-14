@@ -17,6 +17,7 @@
   "dependencies": {
     "@lucien144/vue3-parallaxy": "^0.1.2",
     "pinia": "^2.1.7",
+    "sass": "^1.77.1",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0",
     "watch": "^0.13.0"

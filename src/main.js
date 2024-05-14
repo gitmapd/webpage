@@ -2,7 +2,7 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import Parallaxy from '@lucien144/vue3-parallaxy';
+import Parallaxy from '@lucien144/vue3-parallaxy'
 import App from './App.vue'
 import router from './router'
 

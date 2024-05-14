@@ -4,9 +4,38 @@ import TheWelcome from '../components/TheWelcome.vue'
 
 <template>
   <main >
-    <TheWelcome />
-    <Parallaxy :speed="20" :animation="(delta) => `transform: translate3d(0, ${delta}px, 0);`">
-		<img src="https://picsum.photos/400">
+    	<Parallaxy>
+		<div class="up">
+			<Parallaxy
+				:speed="20"
+				:animation="(delta) => (1 + delta / -30) > 1.5 ? `transform: scale(1.5);` : `transform: scale(${1 + delta / -30});`"
+			>
+				<img src="https://picsum.photos/400">
+			</Parallaxy>
+		</div>
+	</Parallaxy>
+	<Parallaxy
+		:speed="70"
+		direction="opposite"
+	>
+		<div class="down">
+			<Parallaxy
+				:speed="20"
+				:animation="(delta) => `transform: scale(${1 + delta / -40});`"
+			>
+				<img src="https://picsum.photos/400">
+			</Parallaxy>
+		</div>
 	</Parallaxy>
   </main>
 </template>
+
+<style lang="scss" scoped>
+.up {
+	clip-path: url(#maskUp);
+}
+
+.down {
+	clip-path: url(#maskDown);
+}
+</style>
