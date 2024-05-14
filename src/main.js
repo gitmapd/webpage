@@ -2,12 +2,11 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import Vue from 'vue'
-import VueParallaxJs from 'vue-parallax-js'
-Vue.use(VueParallaxJs)
-
+import Parallaxy from '@lucien144/vue3-parallaxy';
 import App from './App.vue'
 import router from './router'
+
+Vue.use(VueParallaxJs)
 
 const app = createApp(App)
 

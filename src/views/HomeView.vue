@@ -3,8 +3,10 @@ import TheWelcome from '../components/TheWelcome.vue'
 </script>
 
 <template>
-  <main>
+  <main >
     <TheWelcome />
-    <h1 v-parallax="0.2">vue-parallax-js</h1>
+    <Parallaxy :speed="20" :animation="(delta: number) => `transform: translate3d(0, ${delta}px, 0);`">
+		<img src="https://picsum.photos/400">
+	</Parallaxy>
   </main>
 </template>
