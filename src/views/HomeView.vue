@@ -1,32 +1,13 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
-</script>
 
 <template>
   <main >
-    	<Parallaxy>
-		<div class="up">
-			<Parallaxy
-				:speed="20"
-				:animation="(delta) => (1 + delta / -30) > 1.5 ? `transform: scale(1.5);` : `transform: scale(${1 + delta / -30});`"
-			>
-				<img src="https://picsum.photos/400">
-			</Parallaxy>
-		</div>
-	</Parallaxy>
-	<Parallaxy
-		:speed="70"
-		direction="opposite"
-	>
-		<div class="down">
-			<Parallaxy
-				:speed="20"
-				:animation="(delta) => `transform: scale(${1 + delta / -40});`"
-			>
-				<img src="https://picsum.photos/400">
-			</Parallaxy>
-		</div>
-	</Parallaxy>
+
+    <div style="font-size:50px; color: purple; font-weight:700;">
+
+    HomeView
+    </div>
+
+
   </main>
 </template>
 
