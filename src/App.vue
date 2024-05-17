@@ -1,26 +1,62 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import Parallaxy from "@lucien144/vue3-parallaxy";
+
+import { ref, onMounted } from 'vue'
+
+const backgroundImg = ref(null)
+const onMouseMove = (e) => {
+  console.log('mousemove', e.clientX, e.clientY, window.innerWidth, window.innerHeight, backgroundImg.value)
+  const x = e.clientX / window.innerWidth - 0.5;
+  const y = e.clientY / window.innerHeight - 0.5;
+  backgroundImg.value.style.transform = `perspective(1000px) rotateX(${y * 10}deg) rotateY(${x * 10}deg)`;
+  // img.style.transform = `translate(-50%, -50%) perspective(1000px) rotateX(${y * 10}deg) rotateY(${x * 10}deg)`;
+};
+
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <div @mousemove="onMouseMove" style="position:absolute; top:0; left:0; width:100vw; height: 100vh; overflow:hidden;">
+    <img  class="background-img" ref="backgroundImg" src="https://www.templatefoundation.com/previews/launch/assets/img/background.jpg">
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
 
+  </div>
+
+<!--  -->
+<!--  <header>-->
+<!--    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />-->
+
+<!--    <div class="wrapper">-->
+<!--      <HelloWorld msg="You did it!" />-->
+
+<!--      <nav>-->
+<!--        <RouterLink to="/">Home</RouterLink>-->
+<!--        <RouterLink to="/about">About</RouterLink>-->
+<!--      </nav>-->
+<!--    </div>-->
+<!--  </header>-->
+
+  <div style="position:relative; z-index:1;">
   <RouterView />
+  </div>
 </template>
 
 <style scoped>
+
+.background-img {
+  position: relative;
+  display: block;
+  left: -5vh;
+  top: -5vh;
+  transform-style: preserve-3d;
+  transform-origin: 50% 50%;
+  max-width: 110vw;
+
+
+
+  backface-visibility: hidden;
+}
 header {
   line-height: 1.5;
   max-height: 100vh;
